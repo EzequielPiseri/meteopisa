@@ -3,18 +3,18 @@
 #' Calcula la temperatura media mensual por estacion y genera un grafico
 #' usando ggplot2.
 #'
+#' @param datos Tibble con columnas: id, fecha (Date), temperatura_abrigo_150cm.
+#' @param colores Vector de colores opcional.
+#' @param titulo Titulo del grafico.
+#'
+#' @return Un objeto ggplot2.
+#'
 #' @examples
 #' # Cargar datos internos
 #' data("NH0472")
 #'
 #' # Graficar la temperatura mensual
 #' grafico_temperatura_mensual(NH0472)
-#'
-#' @param datos Tibble con columnas: id, fecha (Date), temperatura_abrigo_150cm.
-#' @param colores Vector de colores opcional.
-#' @param titulo Titulo del grafico.
-#'
-#' @return Un objeto ggplot2.
 #'
 #' @export
 grafico_temperatura_mensual <- function(datos, colores = NULL, titulo = "Temperatura") {

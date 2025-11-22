@@ -1,18 +1,5 @@
 #' Lee y descarga datos meteorologicos de una estacion
 #'
-#' @examples
-#' # Ejemplo usando un archivo interno del paquete
-#' data("NH0472")
-#'
-#' # Guardar el dataset interno a un archivo temporal
-#' ruta_temp <- tempfile(fileext = ".csv")
-#' readr::write_csv(NH0472, ruta_temp)
-#'
-#' # Leer la "estacion" desde el archivo temporal
-#' datos <- leer_estacion("estacion_NH0472", ruta_temp)
-#' head(datos)
-#'
-#' @description
 #' Descarga (si es necesario) y lee un archivo CSV con datos
 #' meteorologicos correspondientes a una estacion especifica.
 #'
@@ -20,6 +7,11 @@
 #' @param ruta Cadena de texto indicando donde guardar o leer el archivo CSV.
 #'
 #' @return Un tibble con los datos meteorologicos de la estacion.
+#'
+#' @examples
+#' data("NH0472")
+#' head(NH0472)
+#'
 #' @export
 leer_estacion <- function(id_estacion, ruta) {
 

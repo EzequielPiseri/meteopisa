@@ -2,35 +2,35 @@
 % Please edit documentation in R/tabla_resumen_temperatura.R
 \name{tabla_resumen_temperatura}
 \alias{tabla_resumen_temperatura}
-\title{Resume temperaturas de una o varias estaciones}
+\title{Resumen estadistico de temperatura por estacion}
 \usage{
-tabla_resumen_temperatura(ids_estaciones)
+tabla_resumen_temperatura(ids_estaciones = NULL, datos_lista = NULL)
 }
 \arguments{
-\item{ids_estaciones}{Vector de texto con los IDs de estaciones.}
+\item{ids_estaciones}{Vector opcional de IDs de estaciones. Se usa si
+\code{datos_lista} es NULL.}
+
+\item{datos_lista}{Lista opcional de data frames ya cargados, con nombres
+correspondientes a los IDs de estacion.}
 }
 \value{
 Un tibble en formato largo con columnas:
 \code{id}, \code{Tipo}, \code{Temperatura}.
 }
 \description{
-Lee los datos de varias estaciones usando \code{leer_estacion()} y calcula
-estadisticas basicas por estacion: media, desvio estandar, maxima y minima.
-Devuelve los resultados en formato largo.
+Calcula media, desvio estandar, maxima y minima de temperatura para una o mas
+estaciones. Puede funcionar en dos modos:
+\enumerate{
+\item Usando datasets internos (\code{datos_lista}), ideal para examples y tests.
+\item Descargando o leyendo archivos reales mediante \code{leer_estacion()}.
 }
-\details{
-#' @examples
 }
-\section{Cargar el dataset interno de ejemplo}{
+\examples{
+# Usando el dataset interno (modo recomendado para examples)
 data("NH0472")
-}
 
-\section{Guardarlo temporalmente para que leer_estacion() pueda usarlo}{
-ruta_temp <- tempfile(fileext = ".csv")
-readr::write_csv(NH0472, ruta_temp)
-}
+tabla_resumen_temperatura(
+  datos_lista = list(estacion_NH0472 = NH0472)
+)
 
-\section{Crear un resumen usando una sola estacion}{
-tabla_resumen_temperatura("estacion_NH0472")
 }
-

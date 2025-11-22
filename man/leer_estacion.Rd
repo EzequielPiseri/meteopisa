@@ -18,20 +18,8 @@ Un tibble con los datos meteorologicos de la estacion.
 Descarga (si es necesario) y lee un archivo CSV con datos
 meteorologicos correspondientes a una estacion especifica.
 }
-\details{
-#' @examples
-}
-\section{Ejemplo usando un archivo interno del paquete}{
+\examples{
 data("NH0472")
-}
+head(NH0472)
 
-\section{Guardar el dataset interno a un archivo temporal}{
-ruta_temp <- tempfile(fileext = ".csv")
-readr::write_csv(NH0472, ruta_temp)
 }
-
-\section{Leer la "estacion" desde el archivo temporal}{
-datos <- leer_estacion("estacion_NH0472", ruta_temp)
-head(datos)
-}
-

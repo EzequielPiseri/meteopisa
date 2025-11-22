@@ -20,14 +20,11 @@ Un objeto ggplot2.
 Calcula la temperatura media mensual por estacion y genera un grafico
 usando ggplot2.
 }
-\details{
-#' @examples
-}
-\section{Cargar datos internos}{
+\examples{
+# Cargar datos internos
 data("NH0472")
-}
 
-\section{Graficar la temperatura mensual}{
+# Graficar la temperatura mensual
 grafico_temperatura_mensual(NH0472)
-}
 
+}

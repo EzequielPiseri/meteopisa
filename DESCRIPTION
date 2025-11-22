@@ -23,3 +23,7 @@ Imports:
     tidyr,
     cli,
     lubridate
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

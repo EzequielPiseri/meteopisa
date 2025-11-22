@@ -7,14 +7,6 @@
 #' 1) Usando datasets internos (`datos_lista`), ideal para examples y tests.
 #' 2) Descargando o leyendo archivos reales mediante `leer_estacion()`.
 #'
-#' @examples
-#' # Usando el dataset interno (modo recomendado para examples)
-#' data("NH0472")
-#'
-#' tabla_resumen_temperatura(
-#'   datos_lista = list(estacion_NH0472 = NH0472)
-#' )
-#'
 #' @param ids_estaciones Vector opcional de IDs de estaciones. Se usa si
 #'   `datos_lista` es NULL.
 #'
@@ -23,6 +15,14 @@
 #'
 #' @return Un tibble en formato largo con columnas:
 #' `id`, `Tipo`, `Temperatura`.
+#'
+#' @examples
+#' # Usando el dataset interno (modo recomendado para examples)
+#' data("NH0472")
+#'
+#' tabla_resumen_temperatura(
+#'   datos_lista = list(estacion_NH0472 = NH0472)
+#' )
 #'
 #' @export
 tabla_resumen_temperatura <- function(ids_estaciones = NULL, datos_lista = NULL) {
