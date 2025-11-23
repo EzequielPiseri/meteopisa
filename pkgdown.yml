@@ -3,7 +3,7 @@ pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   introduccion: introduccion.html
-last_built: 2025-11-23T18:31Z
+last_built: 2025-11-23T19:13Z
 urls:
   reference: https://ezequielpiseri.github.io/meteopisa/reference
   article: https://ezequielpiseri.github.io/meteopisa/articles
