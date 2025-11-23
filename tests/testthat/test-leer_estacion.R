@@ -1,3 +1,3 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+test_that("leer_estacion falla si el id es inválido", {
+  expect_error(leer_estacion("ID_INVENTADO_XXXX"))
 })
