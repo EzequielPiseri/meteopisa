@@ -21,7 +21,7 @@ grafico_temperatura_mensual(datos, colores = NULL, titulo = "Temperatura")
 
 - titulo:
 
-  Titulo del grafico.
+  Titulo del grafico..
 
 ## Value
 
