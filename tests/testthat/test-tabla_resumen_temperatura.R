@@ -1,27 +1,37 @@
-test_that("tabla_resumen_temperatura genera un resumen válido", {
-  data("NH0472", package = "meteopisa")
+test_that("tabla_resumen_temperatura retorna formato largo correcto", {
+  ids <- c("estacion_NH0472", "estacion_NH0437")
 
-  res <- tabla_resumen_temperatura(
-    datos_lista = list(estacion_NH0472 = NH0472)
-  )
+  res <- tabla_resumen_temperatura(ids)
 
-  # Debe devolver un tibble/data.frame
   expect_s3_class(res, "data.frame")
-
-  # Columnas esperadas
   expect_true(all(c("id", "Tipo", "Temperatura") %in% names(res)))
+  expect_gt(nrow(res), 0)
 
-  # Debe contener exactamente 4 filas (Media, Desvio, Maxima, Minima)
-  expect_equal(nrow(res), 4)
-
-  # id correcto
-  expect_equal(unique(res$id), "estacion_NH0472")
-
-  # Los valores deben ser numéricos
+  expect_setequal(unique(res$id), ids)
+  expect_true(all(res$Tipo %in% c("Maxima","Minima")))
   expect_type(res$Temperatura, "double")
 })
 
-test_that("tabla_resumen_temperatura falla si no recibe una lista válida", {
-  expect_error(tabla_resumen_temperatura(datos_lista = 123))
-  expect_error(tabla_resumen_temperatura(datos_lista = list()))
+test_that("tabla_resumen_temperatura funciona correctamente con id valido", {
+  expect_message(
+    tabla_resumen_temperatura(c("estacion_NH0472")),
+    regexp = "Tabla resumen de temperatura generada"
+  )
 })
+
+
+test_that("tabla_resumen_temperatura lanza error con id invalido", {
+  expect_error(
+    tabla_resumen_temperatura(c("estacion_INEXISTENTE")),
+    regexp = "no es valido",
+    class = "rlang_error"
+  )
+})
+
+
+
+expect_error(
+  tabla_resumen_temperatura(c("estacion_INEXISTENTE")),
+  regexp = "no es valido",
+  class = "rlang_error"
+)
