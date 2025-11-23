@@ -1,0 +1,91 @@
+# meteopisa
+
+## Descripcion
+
+**meteopisa** es un paquete de R creado para trabajar con datos
+meteorologicos.  
+Incluye funciones para:
+
+- leer datos de estaciones
+- generar resumenes de temperatura
+- crear graficos mensuales
+- utilizar datasets internos sin necesidad de carpetas externas
+
+Esta version incorpora las mejores practicas de empaquetado, testeo y
+documentacion.
+
+## Instalacion
+
+Puedes instalar la version de desarrollo desde GitHub:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("EzequielPiseri/meteopisa")
+```
+
+## Ejemplo rapido
+
+Este ejemplo usa el dataset interno **NH0472**, por lo que funciona en
+cualquier computadora.
+
+``` r
+library(meteopisa)
+
+data("NH0472")
+head(NH0472)
+
+grafico_temperatura_mensual(NH0472)
+```
+
+## Resumen de temperatura
+
+``` r
+# Archivo CSV temporal
+archivo_temp <- tempfile(fileext = ".csv")
+write.csv(NH0472, archivo_temp, row.names = FALSE)
+
+# Llamada a la funcion
+res <- leer_estacion("estacion_NH0472", archivo_temp)
+summary(res$temperatura_abrigo_150cm)
+```
+
+## Vinetas
+
+Consulta la vigneta completa:
+
+``` r
+browseVignettes("meteopisa")
+```
+
+## Estado del paquete
+
+Badges se agregan automaticamente con GitHub Actions:
+
+- R CMD check
+- Test coverage
+- Build site
+
+## Autor
+
+Ezequiel Piseri  
+GitHub: <https://github.com/EzequielPiseri>
+
+# Package index
+
+## All functions
+
+- [`NH0472`](https://ezequielpiseri.github.io/meteopisa/reference/NH0472.md)
+  : Dataset NH0472
+- [`grafico_temperatura_mensual()`](https://ezequielpiseri.github.io/meteopisa/reference/grafico_temperatura_mensual.md)
+  : Grafico de temperatura media mensual por estacion
+- [`leer_estacion()`](https://ezequielpiseri.github.io/meteopisa/reference/leer_estacion.md)
+  : Lee y descarga datos meteorologicos de una estacion
+- [`tabla_resumen_temperatura()`](https://ezequielpiseri.github.io/meteopisa/reference/tabla_resumen_temperatura.md)
+  : Resumen estadistico de temperatura por estacion
+
+# Articles
+
+### All vignettes
+
+- [Introduccion a
+  meteopisa](https://ezequielpiseri.github.io/meteopisa/articles/introduccion.md):
