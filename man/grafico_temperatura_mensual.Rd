@@ -11,7 +11,7 @@ grafico_temperatura_mensual(datos, colores = NULL, titulo = "Temperatura")
 
 \item{colores}{Vector de colores opcional.}
 
-\item{titulo}{Titulo del grafico.}
+\item{titulo}{Titulo del grafico..}
 }
 \value{
 Un objeto ggplot2.

@@ -5,7 +5,7 @@
 #'
 #' @param datos Tibble con columnas: id, fecha (Date), temperatura_abrigo_150cm.
 #' @param colores Vector de colores opcional.
-#' @param titulo Titulo del grafico.
+#' @param titulo Titulo del grafico..
 #'
 #' @return Un objeto ggplot2.
 #'
