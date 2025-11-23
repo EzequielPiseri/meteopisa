@@ -12,7 +12,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
-URL: https://github.com/EzequielPiseri/meteopisa
+URL: https://github.com/EzequielPiseri/meteopisa, https://ezequielpiseri.github.io/meteopisa/
 BugReports: https://github.com/EzequielPiseri/meteopisa/issues
 Depends: 
     R (>= 3.5)
@@ -25,5 +25,8 @@ Imports:
     lubridate
 Suggests: 
     knitr,
-    rmarkdown
+    rmarkdown,
+    testthat (>= 3.0.0)
 VignetteBuilder: knitr
+Config/testthat/edition: 3
+LazyData: true

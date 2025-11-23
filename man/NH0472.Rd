@@ -3,29 +3,22 @@
 \docType{data}
 \name{NH0472}
 \alias{NH0472}
-\title{Datos de la estacion NH0472}
+\title{Dataset NH0472}
 \format{
-Un archivo CSV con columnas tipicas de estaciones meteorologicas.
+Un data frame con varias columnas numericas y de fecha.
 }
 \source{
-Estacion meteorologica NH0472.
+Estacion meteorologica NH0472
 }
 \usage{
 NH0472
 }
 \description{
-Conjunto de datos meteorologicos reales de la estacion "NH0472".
-Este archivo se incluye en \verb{inst/extdata/} y se utiliza para ejemplos,
-tests y demostraciones del paquete.
-}
-\details{
-Para acceder a este archivo use:
-
-\code{system.file("extdata", "NH0472.csv", package = "meteopisa")}
+Datos meteorologicos de la estacion NH0472 incluidos en el paquete
+para ejemplos, tests y demostraciones.
 }
 \examples{
-archivo <- system.file("extdata", "NH0472.csv", package = "meteopisa")
-datos <- readr::read_csv(archivo, show_col_types = FALSE)
-head(datos)
+data("NH0472")
+head(NH0472)
 }
 \keyword{datasets}
