@@ -1,16 +1,11 @@
 test_that("tabla_resumen_temperatura funciona con datos internos", {
 
-  data("NH0472")
-
-  resumen <- tabla_resumen_temperatura(
-    datos_lista = list(estacion_NH0472 = NH0472)
+  res <- tabla_resumen_temperatura(
+    datos_lista = list(estacion_NH0472 = NH0472),
+    ids_estaciones = "estacion_NH0472"
   )
 
-  expect_s3_class(resumen, "data.frame")
-  expect_true(all(c("id", "Tipo", "Temperatura") %in% names(resumen)))
-
-  # Validaciones simples
-  expect_true(any(resumen$Tipo == "Media"))
-  expect_true(any(resumen$Tipo == "Maxima"))
-  expect_true(any(resumen$Tipo == "Minima"))
+  expect_s3_class(res, "tbl_df")
+  expect_equal(nrow(res), 4)
+  expect_true(all(c("Media", "Desvio", "Maxima", "Minima") %in% res$Tipo))
 })

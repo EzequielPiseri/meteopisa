@@ -1,25 +1,29 @@
-test_that("grafico_temperatura_mensual genera un ggplot valido", {
-
-  data("NH0472")
-
-  graf <- grafico_temperatura_mensual(NH0472)
-
-  # 1. Devuelve un ggplot
-  expect_s3_class(graf, "ggplot")
-
-  # 2. Tiene datos
-  expect_gt(nrow(graf$data), 0)
-
-  # 3. Tiene titulo correcto
-  expect_equal(graf$labels$title, "Temperatura")
-
-  # 4. El label de la leyenda es correcto
-  # (esto NO depende de scale_color_manual())
-  expect_equal(graf$labels$colour, "Estacion")
-
-  # 5. No debe generar errores al ejecutarse
+test_that("grafico_temperatura_mensual falla por columnas faltantes", {
+  df <- NH0472
+  df$id <- NULL
   expect_error(
-    grafico_temperatura_mensual(NH0472),
-    NA
+    grafico_temperatura_mensual(df),
+    "debe contener las columnas"
+  )
+})
+
+test_that("grafico_temperatura_mensual falla si fecha no es Date", {
+  df <- NH0472
+  df$fecha <- as.character(df$fecha)
+  expect_error(
+    grafico_temperatura_mensual(df),
+    "debe ser de clase Date"
+  )
+})
+
+test_that("grafico_temperatura_mensual genera ggplot y colores aleatorios", {
+  g <- grafico_temperatura_mensual(NH0472)
+  expect_s3_class(g, "ggplot")
+})
+
+test_that("grafico_temperatura_mensual falla si la cantidad de colores es incorrecta", {
+  expect_error(
+    grafico_temperatura_mensual(NH0472, colores = c("red", "blue")),
+    "debe coincidir"
   )
 })
